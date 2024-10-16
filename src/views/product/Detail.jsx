@@ -1,5 +1,9 @@
-import { lazy } from "react";
+import { lazy, useRef, useEffect } from "react";
 import { data } from "../../data";
+import * as d3 from 'd3'; // Para manejar los datos y crear los elementos SVG
+import panzoom from 'panzoom';
+
+
 const CardFeaturedProduct = lazy(() =>
   import("../../components/card/CardFeaturedProduct")
 );
@@ -17,6 +21,47 @@ const ShippingReturns = lazy(() =>
 const SizeChart = lazy(() => import("../../components/others/SizeChart"));
 
 const ProductDetailView = () => {
+
+
+  // const svgRef = useRef(null);
+
+  // const seatData = [
+  //   { id: 1, x: 50, y: 50, status: 'available' },
+  //   { id: 2, x: 150, y: 50, status: 'booked' },
+  //   { id: 3, x: 250, y: 50, status: 'available' },
+  //   { id: 4, x: 50, y: 150, status: 'booked' },
+  //   { id: 5, x: 150, y: 150, status: 'available' },
+  //   { id: 6, x: 250, y: 150, status: 'available' },
+  // ];
+  // useEffect(() => {
+  //   const svgElement = d3.select(svgRef.current);
+
+  //   // Dibujar los asientos usando D3.js
+  //   svgElement
+  //     .selectAll('circle')
+  //     .data(seatData)
+  //     .enter()
+  //     .append('circle')
+  //     .attr('cx', d => d.x)
+  //     .attr('cy', d => d.y)
+  //     .attr('r', 30)
+  //     .attr('fill', d => (d.status === 'available' ? 'green' : 'red'))
+  //     .on('click', (event, d) => {
+  //       alert(`Asiento ${d.id} ${d.status === 'available' ? 'seleccionado' : 'reservado'}`);
+  //     });
+
+  //   // Habilitar el zoom y desplazamiento con Panzoom
+  //   const panZoomInstance = panzoom(svgRef.current, {
+  //     zoomEnabled: true,
+  //     controlIconsEnabled: true,
+  //     maxZoom: 5,
+  //     minZoom: 0.5,
+  //   });
+  //   return () => panZoomInstance.dispose(); // Limpiar la instancia de Panzoom al desmontar el componente
+  // }, []);
+
+  
+
   return (
     <div className="container-fluid mt-3">
       <div className="row">
@@ -199,6 +244,35 @@ const ProductDetailView = () => {
                   <li>Cras consequat felis ut vulputate porttitor.</li>
                 </ul>
               </div>
+            </div>
+          </div>
+          <div className="row">
+            <div>
+              <h4 className="text-muted fw-bold">Localidades</h4>
+              <table className="table table-striped">
+                <thead className="text-light bg-dark">
+                  <th>LOCALIDAD</th>
+                  <th>PRECIO</th>
+                  <th>DETALLE</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>VIP</td>
+                    <td>50</td>
+                    <td>NO NUMERADO</td>
+                  </tr>
+                  <tr>
+                    <td>VIP</td>
+                    <td>50</td>
+                    <td>NO NUMERADO</td>
+                  </tr>
+                  <tr>
+                    <td>VIP</td>
+                    <td>50</td>
+                    <td>NO NUMERADO</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
           <div className="row">
